@@ -1,0 +1,63 @@
+:root {
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-navbar: rgba(13, 17, 23, 0.85);
+    /* Mais escuro e mais opaco */
+    /* --text-primary: #c9d1d9; */
+    --text-primary: #c9d1d9;
+    --text-secondary: #a1abb7;
+
+    --yellow-h: 90;
+    --rose-h: 320;
+    --purple-h: 275;
+    --blue-lightning-h: 195;
+    --blue-h: 210;
+    --green-h: 150;
+    --orange-h: 35;
+    --red-h: 0;
+
+    --color-saturation: 100%;
+
+    --yellow-10: hsl(var(--yellow-h), var(--color-saturation), 10%);
+    --rose-10: hsl(var(--rose-h), var(--color-saturation), 10%);
+    --purple-10: hsl(var(--purple-h), 65%, 10%);
+
+    --blue-10: hsl(var(--blue-h), var(--color-saturation), 10%);
+    --green-10: hsl(var(--green-h), var(--color-saturation), 10%);
+    --orange-10: hsl(var(--orange-h), var(--color-saturation), 10%);
+    --red-10: hsl(var(--red-h), var(--color-saturation), 10%);
+    
+    --blue-20: hsl(var(--blue-h), var(--color-saturation), 20%);
+    --purple-20: hsl(var(--purple-h), var(--color-saturation), 90%);
+
+    --yellow-30: hsl(var(--yellow-h), var(--color-saturation), 80%);
+    --rose-30: hsl(var(--rose-h), var(--color-saturation), 80%);
+    --purple-30: hsl(var(--purple-h), var(--color-saturation), 80%);
+    --blue-30: hsl(var(--blue-h), var(--color-saturation), 80%);
+    --green-30: hsl(var(--green-h), var(--color-saturation), 80%);
+    --orange-30: hsl(var(--orange-h), var(--color-saturation), 80%);
+    --red-30: hsl(var(--red-h), var(--color-saturation), 80%);
+
+    --blue-70: hsl(var(--blue-h), var(--color-saturation), 45%);
+
+    --white-90: hsl(210, 100%, var(--color-lightness-90));
+    
+    --blue-strong-20: hsl(var(--blue-h), 100%, 20%);
+    --blue-strong-30: hsl(var(--blue-h), 100%, 30%);
+
+    --accent-blue: #e1feff;
+    --accent-blue-icons: --blue-30;
+    --accent-green: #238636;
+    --border-color: #30363d;
+    --button-hover-bg: #2ea043;
+    --skill-bg-light: #1e2532;
+    --skill-text: #f0f6fc;
+    --footer-icon-hover: #ffffff;
+    --navbar-height: 70px;
+    --project-card-bg: #0e101030;
+    --project-card-hover-bg: #1f2630;
+    --project-card-border: #30363d;
+    --project-card-border-hover: #99adad;
+    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.3);
+    --shadow-dark: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
