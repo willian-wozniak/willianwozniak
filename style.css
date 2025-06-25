@@ -649,20 +649,9 @@ footer i {
     z-index: 1001;
 }
 
-#ctaBotao {
-    animation: pulse 1.5s infinite alternate;
+#ctaBotao i {
+    font-size: 24px;
 }
-
-@keyframes pulse {
-    from {
-        transform: scale(1);
-    }
-
-    to {
-        transform: scale(1.05);
-    }
-}
-
 
 .experience-timeline {
     display: flex;
