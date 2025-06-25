@@ -5,6 +5,7 @@ class Index {
 
     init() {
         window.addEventListener('load', () => {
+            document.querySelector('#loading-screen').remove();
             if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || typeof ScrollToPlugin === 'undefined') {
                 console.error("GSAP ou seus plugins não carregaram a tempo!");
                 return;
@@ -188,7 +189,7 @@ class Index {
                     start: 'top 60%',
                     end: 'bottom 40%',
                     toggleActions: 'play reverse play reverse',
-                    markers: false, 
+                    markers: false,
                 }
             });
         });

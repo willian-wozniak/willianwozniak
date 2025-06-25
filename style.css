@@ -66,8 +66,12 @@ p {
 
 i.fa-solid,
 i.fa-brands {
-    margin-right: 8px;
     color: var(--accent-blue-icons);
+}
+
+section i.fa-solid,
+section i.fa-brands {
+    margin-right: 8px;
 }
 
 
@@ -310,7 +314,6 @@ section {
 .projects-grid {
     width: 100%;
     display: grid;
-    /* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */
     gap: 2.5rem;
     margin-top: 2rem;
 }
@@ -344,24 +347,14 @@ section {
     margin: 0;
 }
 
-
-
-
-/*  */
-
-
 .project-card {
     width: 100%;
     display: flex;
-    /* background-color: var(--project-card-bg); */
-    /* border: 1px solid var(--project-card-border); */
     border-radius: 15px;
     padding: 2rem;
     gap: 3rem;
     align-items: center;
-    /* max-width: 900px; */
     margin: 2rem auto;
-    /* box-shadow: var(--shadow-light); */
     transition: 0.3s ease;
     border: 0;
 }
@@ -468,12 +461,9 @@ section {
     color: var(--red-30);
 }
 
-
 .project-image {
     flex-shrink: 0;
-    /* width: 120px; */
     width: max-content;
-    /* height: 120px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -481,19 +471,12 @@ section {
 }
 
 .project-image img {
-
     height: 60vh;
-    border-radius: 8%;
     border-radius: 10px;
     transition: transform 0.3s ease;
     z-index: -1;
     border: 1px solid #3d4049;
 }
-
-
-/* Versão Nova */
-
-
 
 .projects-fixed {
     padding: 6rem 2rem;
@@ -541,10 +524,6 @@ section {
     gap: 4rem;
     z-index: 1;
 }
-
-
-
-/* Fim versão nova */
 
 .contact {
     text-align: center;
@@ -597,23 +576,12 @@ section {
     color: #fff;
 }
 
-
-footer {
-    bottom: 0;
-    z-index: 0;
-}
-
-/* 
-/* Conteúdo principal (exemplo: body, main ou section) */
 main,
 .projects {
     position: relative;
     z-index: 2;
-    /* acima do footer */
     padding-bottom: 60px;
-    /* mesma altura do footer para evitar sobreposição */
     background-color: var(--bg-primary);
-    /* ou qualquer cor sólida para esconder o footer atrás */
 }
 
 .projects {
@@ -622,9 +590,9 @@ main,
     padding: 3em 0;
 }
 
-/*  */
-
-.site-footer {
+footer {
+    bottom: 0;
+    z-index: 0;
     background-color: var(--bg-secondary);
     color: var(--text-secondary);
     text-align: center;
@@ -661,12 +629,12 @@ main,
     color: var(--accent-blue);
 }
 
-.site-footer p:last-child {
+footer p:last-child {
     margin-top: 0.5rem;
     margin-bottom: 0;
 }
 
-.site-footer i {
+footer i {
     margin-left: 3px;
     margin-right: 3px;
 }
