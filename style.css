@@ -324,19 +324,6 @@ section {
     margin-right: 0;
 }
 
-.project-card h3 {
-    color: var(--accent-blue);
-    margin-bottom: 10px;
-    font-size: 1.3rem;
-}
-
-.project-card p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    margin-bottom: 15px;
-    flex-grow: 1;
-}
-
 .project-links {
     text-align: right;
 }
@@ -363,7 +350,7 @@ section {
 /*  */
 
 
-.project-card-horizontal {
+.project-card {
     width: 100%;
     display: flex;
     /* background-color: var(--project-card-bg); */
@@ -379,12 +366,12 @@ section {
     border: 0;
 }
 
-.project-card-horizontal h3 {
+.project-card h3 {
     color: var(--white-90);
     transition: .10s;
 }
 
-.project-card-horizontal:hover h3 {
+.project-card:hover h3 {
     color: inherit;
 }
 
@@ -406,7 +393,7 @@ section {
     transition: 1s;
 }
 
-.project-card-horizontal:hover .project-text p {
+.project-card:hover .project-text p {
     color: var(--text-primary);
 }
 
@@ -425,25 +412,31 @@ section {
     display: inline-block;
 }
 
-.project-card-horizontal.color-30-blue  .project-tags span {
+.project-card.color-30-blue .project-tags span {
     background-color: var(--blue-10);
 }
-.project-card-horizontal.color-30-rose  .project-tags span {
+
+.project-card.color-30-rose .project-tags span {
     background-color: var(--rose-10);
 }
-.project-card-horizontal.color-30-purple  .project-tags span {
+
+.project-card.color-30-purple .project-tags span {
     background-color: var(--purple-10);
 }
-.project-card-horizontal.color-30-yellow  .project-tags span {
+
+.project-card.color-30-yellow .project-tags span {
     background-color: var(--yellow-10);
 }
-.project-card-horizontal.color-30-green  .project-tags span {
+
+.project-card.color-30-green .project-tags span {
     background-color: var(--green-10);
 }
-.project-card-horizontal.color-30-orange  .project-tags span {
+
+.project-card.color-30-orange .project-tags span {
     background-color: var(--orange-10);
 }
-.project-card-horizontal.color-30-red  .project-tags span {
+
+.project-card.color-30-red .project-tags span {
     background-color: var(--red-10);
 }
 
@@ -784,11 +777,6 @@ main,
         font-size: 1.8rem;
     }
 
-    .site-main {
-        margin: 2.5rem auto;
-        padding: 0 1rem;
-    }
-
     section {
         padding: 2rem;
     }
@@ -828,11 +816,6 @@ main,
         padding: 4rem 0.5rem 3rem;
     }
 
-    .site-main {
-        margin: 1.5rem auto;
-        padding: 0 0.5rem;
-    }
-
     section {
         padding: 1.5rem;
     }
@@ -847,5 +830,6 @@ main,
         transform: translateY(-50%);
         width: calc(100% - 5rem);
         opacity: .8;
+        filter: brightness(0.2);
     }
 }

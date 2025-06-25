@@ -54,7 +54,7 @@ class Index {
     setupCustomCursor() {
         const cursorDot = document.querySelector('.cursor-dot');
         const cursorOutline = document.querySelector('.cursor-outline');
-        const interactiveElements = document.querySelectorAll('a, button, .skill-item, .project-card-horizontal, .project-card-vertical, .social-link, .footer-social a');
+        const interactiveElements = document.querySelectorAll('a, button, .skill-item, .project-card, .project-card-vertical, .social-link, .footer-social a');
 
         if (!cursorDot || !cursorOutline) return;
 
@@ -177,7 +177,7 @@ class Index {
             });
         });
 
-        gsap.utils.toArray('.project-card-horizontal').forEach(card => {
+        gsap.utils.toArray('.project-card').forEach(card => {
             gsap.from(card, {
                 opacity: 0,
                 y: 30,
@@ -185,13 +185,14 @@ class Index {
                 ease: 'power2.out',
                 scrollTrigger: {
                     trigger: card,
-                    start: 'top 85%',
-                    end: 'bottom 10%',
+                    start: 'top 60%',
+                    end: 'bottom 40%',
                     toggleActions: 'play reverse play reverse',
-                    markers: false,
+                    markers: false, 
                 }
             });
         });
+
     }
 
 
@@ -264,7 +265,7 @@ class Index {
     }
 
     setupTransitionImagesProjects() {
-        const cards = document.querySelectorAll('.project-card-horizontal');
+        const cards = document.querySelectorAll('.project-card');
         const images = document.querySelectorAll('.project-img');
 
         const visibleCards = new Set();
