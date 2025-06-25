@@ -82,10 +82,9 @@ class Index {
             new Typed('#typed-subtitle', {
                 strings: [
                     'Engenheiro de Software',
-                    'Especialista em Java e Golang',
+                    'Especialista em Java, Golang e JavaScript',
                     'Criador de Soluções Web Escaláveis',
                     'Defensor da Arquitetura Limpa',
-                    'Desenvolvedor de Sistemas ERP',
                     'Apaixonado por Código de Qualidade'
                 ],
                 typeSpeed: 60, backSpeed: 30, backDelay: 1500, startDelay: 500,
