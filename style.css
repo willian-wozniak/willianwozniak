@@ -799,5 +799,6 @@ footer i {
         width: calc(100% - 5rem);
         opacity: .8;
         filter: brightness(0.2);
+        pointer-events: none;
     }
 }
