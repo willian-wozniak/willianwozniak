@@ -1,449 +1,690 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Willian Rafael Wozniak - Engenheiro de Software</title>
+        <meta
+            name="description"
+            content="Portfólio de Willian Rafael Wozniak, desenvolvedor e engenheiro de software especializado em Golang, Java, React, arquitetura de sistemas e soluções em nuvem."
+        />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willian Rafael Wozniak - Engenheiro de Software</title>
-    <meta name="description"
-        content="Portfólio de Willian Rafael Wozniak, desenvolvedor e engenheiro de software especializado em Golang, Java, React, arquitetura de sistemas e soluções em nuvem.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- <link
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <!-- <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap"
         rel="stylesheet"> -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap"
-        rel="stylesheet" media="print" onload="this.media='all'">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap"
+            rel="stylesheet"
+            media="print"
+            onload="this.media='all'"
+        />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
 
-    <!-- <link rel="preload" href="root.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript> -->
-    <link rel="stylesheet" href="root.css">
-    <link rel="stylesheet" href="style.css">
-    <!-- </noscript> -->
+        <link rel="stylesheet" href="root.css" />
+        <link rel="stylesheet" href="style.css" />
 
-
-    <!-- <link rel="stylesheet" href="root.css">
-    <link rel="stylesheet" href="style.css"> -->
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background: #000;
-            /* ou o fundo base que você usa */
-            color: #fff;
-            /* se for tema escuro */
-        }
-
-        #loading-screen {
-            position: fixed;
-            background: #000;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            flex-direction: column;
-            z-index: 9999;
-            gap: 3em;
-        }
-
-
-        .loader-title {
-            font-size: 1.4rem;
-            font-family: sans-serif;
-            font-weight: 700;
-            color: #e1feff;
-        }
-
-        .loader {
-            position: relative;
-            height: 40px;
-            width: 6px;
-            color: #FFF;
-            animation: paddles 0.75s ease-out infinite;
-        }
-
-        .loader:before {
-            content: "";
-            position: absolute;
-            margin: 0 auto;
-            left: 0;
-            right: 0;
-            top: 15px;
-            width: 12px;
-            height: 12px;
-            background-color: #de3500;
-            border-radius: 50%;
-            animation: ballbounce 0.6s ease-out infinite;
-        }
-
-        @keyframes paddles {
-            0% {
-                box-shadow: -25px -10px, 25px 10px
+        <style>
+            body {
+                margin: 0;
+                font-family: "Inter", sans-serif;
+                background: #000;
+                /* ou o fundo base que você usa */
+                color: #fff;
+                /* se for tema escuro */
             }
 
-            50% {
-                box-shadow: -25px 8px, 25px -10px
+            #loading-screen {
+                position: fixed;
+                background: #000;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                flex-direction: column;
+                z-index: 9999;
+                gap: 3em;
             }
 
-            100% {
-                box-shadow: -25px -10px, 25px 10px
-            }
-        }
-
-        @keyframes ballbounce {
-            0% {
-                transform: translateX(-20px) scale(1, 1.2)
-            }
-
-            25% {
-                transform: scale(1.2, 1)
+            .ai-matrix-loader {
+                width: 120px;
+                height: 160px;
+                margin: 30px auto;
+                position: relative;
+                perspective: 800px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 5px;
             }
 
-            50% {
-                transform: translateX(15px) scale(1, 1.2)
+            .digit {
+                color: #00ff88;
+                font-family: monospace;
+                font-size: 18px;
+                text-align: center;
+                text-shadow: 0 0 5px #00ff88;
+                animation: matrix-fall 2s infinite, matrix-flicker 0.5s infinite;
+                opacity: 0;
             }
 
-            75% {
-                transform: scale(1.2, 1)
+            .digit:nth-child(1) {
+                animation-delay: 0.1s;
+            }
+            .digit:nth-child(2) {
+                animation-delay: 0.3s;
+            }
+            .digit:nth-child(3) {
+                animation-delay: 0.5s;
+            }
+            .digit:nth-child(4) {
+                animation-delay: 0.7s;
+            }
+            .digit:nth-child(5) {
+                animation-delay: 0.9s;
+            }
+            .digit:nth-child(6) {
+                animation-delay: 1.1s;
+            }
+            .digit:nth-child(7) {
+                animation-delay: 1.3s;
+            }
+            .digit:nth-child(8) {
+                animation-delay: 1.5s;
             }
 
-            100% {
-                transform: translateX(-20px)
+            .glow {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: radial-gradient(
+                    circle,
+                    rgba(0, 255, 136, 0.1) 0%,
+                    transparent 70%
+                );
+                animation: matrix-pulse 2s infinite;
             }
-        }
-    </style>
 
+            @keyframes matrix-fall {
+                0% {
+                    transform: translateY(-50px) rotateX(90deg);
+                    opacity: 0;
+                }
+                20%,
+                80% {
+                    transform: translateY(0) rotateX(0deg);
+                    opacity: 0.8;
+                }
+                100% {
+                    transform: translateY(50px) rotateX(-90deg);
+                    opacity: 0;
+                }
+            }
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js" defer></script>
-    <script src="script.js" defer></script>
-</head>
+            @keyframes matrix-flicker {
+                0%,
+                19%,
+                21%,
+                100% {
+                    opacity: 0.8;
+                }
+                20% {
+                    opacity: 0.2;
+                }
+            }
 
-<body>
-    <div id="loading-screen">
+            @keyframes matrix-pulse {
+                0%,
+                100% {
+                    opacity: 0.3;
+                }
+                50% {
+                    opacity: 0.7;
+                }
+            }
+        </style>
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+            defer
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+            defer
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"
+            defer
+        ></script>
+        <script
+            src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"
+            defer
+        ></script>
+        <script src="script.js" defer></script>
+    </head>
+
+    <body>
+        <div id="loading-screen">
+            <!-- From Uiverse.io by PriyanshuGupta28 -->
+            <div class="ai-matrix-loader">
+                <div class="digit">0</div>
+                <div class="digit">1</div>
+                <div class="digit">0</div>
+                <div class="digit">1</div>
+                <div class="digit">1</div>
+                <div class="digit">0</div>
+                <div class="digit">0</div>
+                <div class="digit">1</div>
+                <div class="glow"></div>
+            </div>
+        </div>
+        <!-- <div id="loading-screen">
         <span class="loader-title">Willian Rafael Wozniak</span>
         <span class="loader"></span>
-    </div>
+    </div> -->
 
-    <nav class="navbar">
-        <div class="nav-content">
-            <a href="#" class="nav-logo">WRW.</a>
-            <ul class="nav-links">
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-            <button class="nav-toggle" aria-label="Abrir menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-    </nav>
-
-    <header class="site-header" id="inicio">
-        <div class="header-content">
-            <h1 id="tituloPrincipal">Willian Rafael Wozniak</h1>
-            <p id="subTitulo"><span id="typed-subtitle"></span></p>
-        </div>
-    </header>
-
-    <main class="site-main">
-        <section class="about-me" id="sobre">
-            <div class="section-header">
-                <h2 class="section-title">Sobre Mim</h2>
+        <nav class="navbar">
+            <div class="nav-content">
+                <a href="#" class="nav-logo">WRW.</a>
+                <ul class="nav-links">
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#habilidades">Habilidades</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+                <button class="nav-toggle" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </div>
-            <img src="./images/willian_wozniak.jpg"
-                alt="Foto de Willian Rafael Wozniak" class="profile-pic" loading="lazy">
+        </nav>
 
-            <p class="about-text"><strong>Formação:</strong> Sou Técnico em Informática e atualmente curso Ciência da
-                Computação, com foco em engenharia de software, estruturas de dados e arquitetura de sistemas
-                distribuídos.</p>
+        <header class="site-header" id="inicio">
+            <div class="header-content">
+                <h1 id="tituloPrincipal">Willian Rafael Wozniak</h1>
+                <p id="subTitulo"><span id="typed-subtitle"></span></p>
+            </div>
+        </header>
 
-            <p class="about-text">
-                <strong>Experiência:</strong> Sou Engenheiro de Software com mais de 4 anos de atuação na área de
-                desenvolvimento, criando soluções escaláveis para sistemas ERP, integrações corporativas e plataformas
-                web. Tenho experiência sólida no backend (Golang, Java) e infraestrutura em nuvem (Docker, CI/CD),
-                sempre com foco em performance, segurança e qualidade de código.
+        <main class="site-main">
+            <section class="about-me" id="sobre">
+                <div class="section-header">
+                    <h2 class="section-title">Sobre Mim</h2>
+                </div>
+                <img
+                    src="./images/willian_wozniak.jpg"
+                    alt="Foto de Willian Rafael Wozniak"
+                    class="profile-pic"
+                    loading="lazy"
+                />
+
+                <p class="about-text">
+                    <strong>Formação:</strong> Sou Técnico em Informática e
+                    atualmente curso Ciência da Computação, com foco em
+                    engenharia de software, estruturas de dados e arquitetura de
+                    sistemas distribuídos.
+                </p>
+
+                <p class="about-text">
+                    <strong>Experiência:</strong> Sou Engenheiro de Software com
+                    mais de 4 anos de atuação na área de desenvolvimento,
+                    criando soluções escaláveis para sistemas ERP, integrações
+                    corporativas e plataformas web. Tenho experiência sólida no
+                    backend (Golang, Java) e infraestrutura em nuvem (Docker,
+                    CI/CD), sempre com foco em performance, segurança e
+                    qualidade de código.
+                </p>
+
+                <p class="about-text">
+                    <strong>Propósito:</strong> Sou apaixonado por transformar
+                    ideias em soluções eficientes e sustentáveis. Acredito na
+                    engenharia de software como ferramenta estratégica para
+                    resolver problemas reais, otimizar processos e gerar impacto
+                    positivo em escala.
+                </p>
+
+                <p class="about-text">
+                    Meu trabalho é guiado por princípios como clareza
+                    arquitetural, código limpo e melhoria contínua, sempre
+                    alinhado às necessidades do negócio e à experiência do
+                    usuário.
+                </p>
+
+                <a
+                    href="https://www.linkedin.com/in/willianwozniak/"
+                    target="_blank"
+                    id="ctaBotao"
+                    class="button-primary"
+                >
+                    <i class="fa-brands fa-linkedin"></i> Conecte-se Comigo!
+                </a>
+            </section>
+
+            <section class="skills" id="habilidades">
+                <div class="section-header">
+                    <h2 class="section-title">Habilidades Técnicas</h2>
+                </div>
+
+                <div class="skill-group">
+                    <h3>
+                        <i class="fa-solid fa-code fa-fw"></i> Desenvolvimento
+                        Web
+                    </h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">HTML5</li>
+                        <li class="skill-item">CSS</li>
+                        <li class="skill-item">JavaScript (ES6+)</li>
+                        <li class="skill-item">React.js</li>
+                        <li class="skill-item">React Hooks</li>
+                        <li class="skill-item">Web Design Responsivo</li>
+                        <li class="skill-item">UI Design</li>
+                        <li class="skill-item">Desenvolvimento Mobile</li>
+                        <li class="skill-item">Integração com APIs REST</li>
+                        <li class="skill-item">Arquitetura RESTful</li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <h3>
+                        <i class="fa-solid fa-gears fa-fw"></i> Backend &
+                        Arquitetura
+                    </h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">Golang</li>
+                        <li class="skill-item">Python</li>
+                        <li class="skill-item">Java</li>
+                        <li class="skill-item">gRPC</li>
+                        <li class="skill-item">Engenharia de Software</li>
+                        <li class="skill-item">Arquitetura de Software</li>
+                        <li class="skill-item">
+                            Desenvolvimento Web Full-stack
+                        </li>
+                        <li class="skill-item">Otimização de Performance</li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <h3>
+                        <i class="fa-solid fa-cloud fa-fw"></i> Cloud & DevOps
+                    </h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">
+                            Integração e Entrega Contínua (CI/CD)
+                        </li>
+                        <li class="skill-item">DevOps</li>
+                        <li class="skill-item">Docker</li>
+                        <li class="skill-item">Docker Swarm</li>
+                        <li class="skill-item">Extensões e Plugins Docker</li>
+                        <li class="skill-item">Git e versionamento</li>
+                        <li class="skill-item">Bash scripting</li>
+                        <li class="skill-item">Linux</li>
+                        <li class="skill-item">
+                            Instalação, configuração e gerenciamento de sistemas
+                            operacionais (Linux e Windows)
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <h3>
+                        <i class="fa-solid fa-database fa-fw"></i> Bancos de
+                        Dados
+                    </h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">PostgreSQL</li>
+                        <li class="skill-item">MySQL</li>
+                        <li class="skill-item">Microsoft SQL Server</li>
+                        <li class="skill-item">Firebird</li>
+                        <li class="skill-item">
+                            SQL (consultas, modelagem, tuning)
+                        </li>
+                        <li class="skill-item">Design de Bancos Relacionais</li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <h3>
+                        <i class="fa-solid fa-vial-circle-check fa-fw"></i>
+                        Qualidade & Testes
+                    </h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">Testes Automatizados</li>
+                        <li class="skill-item">
+                            TDD (Test Driven Development)
+                        </li>
+                        <li class="skill-item">Cobertura de Código</li>
+                        <li class="skill-item">
+                            Validações contínuas via CI/CD
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <h3>
+                        <i class="fa-solid fa-users-gear fa-fw"></i> Gestão &
+                        Processos
+                    </h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">
+                            Metodologias Ágeis (Scrum, Kanban)
+                        </li>
+                        <li class="skill-item">
+                            ERP (Planejamento de Recursos Empresariais)
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <h3>
+                        <i class="fa-solid fa-brain fa-fw"></i> Inteligência
+                        Artificial
+                    </h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">
+                            Desenvolvimento com IA Generativa
+                        </li>
+                        <li class="skill-item">
+                            LangChain para orquestração de fluxos
+                        </li>
+                        <li class="skill-item">
+                            Integração com modelos OpenAI
+                        </li>
+                        <li class="skill-item">LLMs locais (como LLaMA)</li>
+                        <li class="skill-item">
+                            Vetorização, embeddings e re-ranking
+                        </li>
+                        <li class="skill-item">
+                            Modelos open-source e pipelines personalizados
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="experience" id="experiencia">
+                <div class="section-header">
+                    <h2 class="section-title">Experiência Profissional</h2>
+                </div>
+                <div class="experience-timeline">
+                    <div class="experience-item">
+                        <h3>Engenheiro de Software - Tecnicon</h3>
+                        <span class="experience-period">2021 - Atual</span>
+                        <p>
+                            Desenvolvimento de sistemas ERP com foco na
+                            integração de novos serviços corporativos.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="projects-fixed" id="projetos">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        Algumas das Soluções Criadas e Contribuídas
+                    </h2>
+                </div>
+                <div class="projects-container">
+                    <div class="project-list">
+                        <div class="project-card color-30-blue" data-index="0">
+                            <div class="project-text">
+                                <h3>Plataforma Interna de Sites</h3>
+                                <p>
+                                    Editor visual com suporte drag-and-drop para
+                                    criação de páginas, utilizado internamente
+                                    para automatizar geração de microsites
+                                    empresariais.
+                                </p>
+                                <div class="project-tags">
+                                    <span>Java</span
+                                    ><span>Vanilla JavaScript</span
+                                    ><span>Database</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="project-card color-30-purple"
+                            data-index="1"
+                        >
+                            <div class="project-text">
+                                <h3>Whiteboard Colaborativo</h3>
+                                <p>
+                                    Ferramenta de colaboração visual com suporte
+                                    a múltiplos usuários em tempo real,
+                                    inspirada no Miro, voltada para uso interno
+                                    entre equipes da empresa.
+                                </p>
+                                <div class="project-tags">
+                                    <span>Java</span
+                                    ><span>Vanilla JavaScript</span
+                                    ><span>WebSocket</span><span>Database</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card color-30-rose" data-index="2">
+                            <div class="project-text">
+                                <h3>Chat Interno Corporativo</h3>
+                                <p>
+                                    Ferramenta de comunicação interna entre
+                                    departamentos, com histórico, notificações
+                                    em tempo real e integração com o sistema
+                                    ERP.
+                                </p>
+                                <div class="project-tags">
+                                    <span>Java</span
+                                    ><span>Vanilla JavaScript</span
+                                    ><span>WebSocket</span><span>Database</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card color-30-green" data-index="3">
+                            <div class="project-text">
+                                <h3>Integração com WhatsApp</h3>
+                                <p>
+                                    Integração de mensagens automatizadas via
+                                    WhatsApp para atendimento ao cliente e
+                                    notificações de sistema.
+                                </p>
+                                <div class="project-tags">
+                                    <span>Java</span><span>Node.js</span
+                                    ><span>Vanilla JavaScript</span
+                                    ><span>WebSocket</span><span>Database</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card color-30-blue" data-index="4">
+                            <div class="project-text">
+                                <h3>Chat com Inteligência Artificial</h3>
+                                <p>
+                                    Assistente virtual com IA para atendimento e
+                                    suporte técnico dentro da plataforma, com
+                                    contexto e respostas personalizadas.
+                                </p>
+                                <div class="project-tags">
+                                    <span>Python</span><span>LangChain</span
+                                    ><span>OpenAI</span><span>Llama</span>
+                                    <span>Java</span
+                                    ><span>Vanilla JavaScript</span
+                                    ><span>Database</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="project-card color-30-orange"
+                            data-index="5"
+                        >
+                            <div class="project-text">
+                                <h3>Dashboards Interativos</h3>
+                                <p>
+                                    Visualização de métricas empresariais em
+                                    tempo real com painéis personalizáveis por
+                                    usuário.
+                                </p>
+                                <div class="project-tags">
+                                    <span>Java</span
+                                    ><span>Vanilla JavaScript</span
+                                    ><span>Database</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card color-30-red" data-index="6">
+                            <div class="project-text">
+                                <h3>Editor/IDE Interno</h3>
+                                <p>
+                                    Ambiente integrado de desenvolvimento para
+                                    Java, frontend e banco de dados, com
+                                    destaque de sintaxe, execução de código e
+                                    integração ao ERP.
+                                </p>
+                                <div class="project-tags">
+                                    <span>Java</span><span>SQL</span
+                                    ><span>Frontend</span
+                                    ><span>Monaco Editor</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-images">
+                        <img
+                            src="./images/project_editor_site.png"
+                            class="project-img"
+                            loading="lazy"
+                            data-id="0"
+                            alt="Projeto 1"
+                        />
+                        <img
+                            src="./images/project_whiteboard.png"
+                            class="project-img"
+                            loading="lazy"
+                            data-id="1"
+                            alt="Projeto 2"
+                        />
+                        <img
+                            src="./images/project_chat_internal.png"
+                            class="project-img"
+                            loading="lazy"
+                            data-id="2"
+                            alt="Projeto 3"
+                        />
+                        <img
+                            src="./images/project_whatsapp.png"
+                            class="project-img"
+                            loading="lazy"
+                            data-id="3"
+                            alt="Projeto 4"
+                        />
+                        <img
+                            src="./images/project_chat_ai.png"
+                            class="project-img"
+                            loading="lazy"
+                            data-id="4"
+                            alt="Projeto 5"
+                        />
+                        <img
+                            src="./images/project_dashboard.png"
+                            class="project-img"
+                            loading="lazy"
+                            data-id="5"
+                            alt="Projeto 6"
+                        />
+                        <img
+                            src="./images/project_editor_ide.png"
+                            class="project-img"
+                            loading="lazy"
+                            data-id="6"
+                            alt="Projeto 7"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact" id="contato">
+                <div class="section-header">
+                    <h2 class="section-title">Entre em Contato</h2>
+                </div>
+                <p>
+                    Interessado em colaborar ou saber mais? Ficarei feliz em
+                    conversar com você!
+                </p>
+                <div class="contact-links">
+                    <a
+                        href="https://www.linkedin.com/in/willianwozniak/"
+                        target="_blank"
+                        class="social-link"
+                        ><i class="fa-brands fa-linkedin fa-2x"></i
+                        ><span>LinkedIn</span></a
+                    >
+                    <a
+                        href="https://github.com/willian-wozniak"
+                        target="_blank"
+                        class="social-link"
+                        ><i class="fa-brands fa-github fa-2x"></i
+                        ><span>GitHub</span></a
+                    >
+                    <a
+                        href="mailto:willianrafaelwozniak@gmail.com"
+                        class="social-link"
+                        ><i class="fa-solid fa-envelope fa-2x"></i
+                        ><span>E-mail</span></a
+                    >
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-social">
+                <a
+                    class="social-link"
+                    href="https://www.linkedin.com/in/willianwozniak/"
+                    target="_blank"
+                    aria-label="LinkedIn"
+                    ><i class="fa-brands fa-linkedin-in"></i
+                ></a>
+                <a
+                    class="social-link"
+                    href="https://github.com/willian-wozniak"
+                    target="_blank"
+                    aria-label="GitHub"
+                    ><i class="fa-brands fa-github"></i
+                ></a>
+                <a
+                    class="social-link"
+                    href="mailto:willianrafaelwozniak@gmail.com"
+                    aria-label="Email"
+                    ><i class="fa-solid fa-envelope"></i
+                ></a>
+            </div>
+            <p>
+                &copy; 2025 Willian Rafael Wozniak. Todos os direitos
+                reservados.
             </p>
+            <p>
+                Desenvolvido com
+                <i class="fa-solid fa-heart" style="color: #e44d26"></i> e
+                <i
+                    class="fa-solid fa-code"
+                    style="color: var(--accent-blue)"
+                ></i
+                >.
+            </p>
+        </footer>
 
-            <p class="about-text"><strong>Propósito:</strong> Sou apaixonado por transformar ideias em soluções
-                eficientes e sustentáveis. Acredito na engenharia de software como ferramenta estratégica para resolver
-                problemas reais, otimizar processos e gerar impacto positivo em escala.</p>
-
-            <p class="about-text">Meu trabalho é guiado por princípios como clareza arquitetural, código limpo e
-                melhoria contínua, sempre alinhado às necessidades do negócio e à experiência do usuário.</p>
-
-            <a href="https://www.linkedin.com/in/willianwozniak/" target="_blank" id="ctaBotao" class="button-primary">
-                <i class="fa-brands fa-linkedin"></i> Conecte-se Comigo!
-            </a>
-        </section>
-
-
-
-        <section class="skills" id="habilidades">
-            <div class="section-header">
-                <h2 class="section-title">Habilidades Técnicas</h2>
-            </div>
-
-            <div class="skill-group">
-                <h3><i class="fa-solid fa-code fa-fw"></i> Desenvolvimento Web</h3>
-                <ul class="skills-list">
-                    <li class="skill-item">HTML5</li>
-                    <li class="skill-item">CSS</li>
-                    <li class="skill-item">JavaScript (ES6+)</li>
-                    <li class="skill-item">React.js</li>
-                    <li class="skill-item">React Hooks</li>
-                    <li class="skill-item">Web Design Responsivo</li>
-                    <li class="skill-item">UI Design</li>
-                    <li class="skill-item">Desenvolvimento Mobile</li>
-                    <li class="skill-item">Integração com APIs REST</li>
-                    <li class="skill-item">Arquitetura RESTful</li>
-                </ul>
-            </div>
-
-            <div class="skill-group">
-                <h3><i class="fa-solid fa-gears fa-fw"></i> Backend & Arquitetura</h3>
-                <ul class="skills-list">
-                    <li class="skill-item">Golang</li>
-                    <li class="skill-item">Python</li>
-                    <li class="skill-item">Java</li>
-                    <li class="skill-item">gRPC</li>
-                    <li class="skill-item">Engenharia de Software</li>
-                    <li class="skill-item">Arquitetura de Software</li>
-                    <li class="skill-item">Desenvolvimento Web Full-stack</li>
-                    <li class="skill-item">Otimização de Performance</li>
-                </ul>
-            </div>
-
-            <div class="skill-group">
-                <h3><i class="fa-solid fa-cloud fa-fw"></i> Cloud & DevOps</h3>
-                <ul class="skills-list">
-                    <li class="skill-item">Integração e Entrega Contínua (CI/CD)</li>
-                    <li class="skill-item">DevOps</li>
-                    <li class="skill-item">Docker</li>
-                    <li class="skill-item">Docker Swarm</li>
-                    <li class="skill-item">Extensões e Plugins Docker</li>
-                    <li class="skill-item">Git e versionamento</li>
-                    <li class="skill-item">Bash scripting</li>
-                    <li class="skill-item">Linux</li>
-                    <li class="skill-item">Instalação, configuração e gerenciamento de sistemas operacionais (Linux e
-                        Windows)</li>
-                </ul>
-            </div>
-
-            <div class="skill-group">
-                <h3><i class="fa-solid fa-database fa-fw"></i> Bancos de Dados</h3>
-                <ul class="skills-list">
-                    <li class="skill-item">PostgreSQL</li>
-                    <li class="skill-item">MySQL</li>
-                    <li class="skill-item">Microsoft SQL Server</li>
-                    <li class="skill-item">Firebird</li>
-                    <li class="skill-item">SQL (consultas, modelagem, tuning)</li>
-                    <li class="skill-item">Design de Bancos Relacionais</li>
-                </ul>
-            </div>
-
-            <div class="skill-group">
-                <h3><i class="fa-solid fa-vial-circle-check fa-fw"></i> Qualidade & Testes</h3>
-                <ul class="skills-list">
-                    <li class="skill-item">Testes Automatizados</li>
-                    <li class="skill-item">TDD (Test Driven Development)</li>
-                    <li class="skill-item">Cobertura de Código</li>
-                    <li class="skill-item">Validações contínuas via CI/CD</li>
-                </ul>
-            </div>
-
-            <div class="skill-group">
-                <h3><i class="fa-solid fa-users-gear fa-fw"></i> Gestão & Processos</h3>
-                <ul class="skills-list">
-                    <li class="skill-item">Metodologias Ágeis (Scrum, Kanban)</li>
-                    <li class="skill-item">ERP (Planejamento de Recursos Empresariais)</li>
-                </ul>
-            </div>
-
-            <div class="skill-group">
-                <h3><i class="fa-solid fa-brain fa-fw"></i> Inteligência Artificial</h3>
-                <ul class="skills-list">
-                    <li class="skill-item">Desenvolvimento com IA Generativa</li>
-                    <li class="skill-item">LangChain para orquestração de fluxos</li>
-                    <li class="skill-item">Integração com modelos OpenAI</li>
-                    <li class="skill-item">LLMs locais (como LLaMA)</li>
-                    <li class="skill-item">Vetorização, embeddings e re-ranking</li>
-                    <li class="skill-item">Modelos open-source e pipelines personalizados</li>
-                </ul>
-            </div>
-        </section>
-
-
-        <section class="experience" id="experiencia">
-            <div class="section-header">
-                <h2 class="section-title">Experiência Profissional</h2>
-            </div>
-            <div class="experience-timeline">
-                <div class="experience-item">
-                    <h3>Engenheiro de Software - Tecnicon</h3>
-                    <span class="experience-period">2021 - Atual</span>
-                    <p>Desenvolvimento de sistemas ERP com foco na integração de novos serviços corporativos.</p>
-                </div>
-            </div>
-        </section>
-
-
-        <section class="projects-fixed" id="projetos">
-            <div class="section-header">
-                <h2 class="section-title">Algumas das Soluções Criadas e Contribuídas</h2>
-            </div>
-            <div class="projects-container">
-                <div class="project-list">
-                    <div class="project-card  color-30-blue" data-index="0">
-                        <div class="project-text">
-                            <h3>Plataforma Interna de Sites</h3>
-                            <p>Editor visual com suporte drag-and-drop para criação de páginas, utilizado internamente
-                                para automatizar geração de microsites empresariais.</p>
-                            <div class="project-tags">
-                                <span>Java</span><span>Vanilla JavaScript</span><span>Database</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card color-30-purple" data-index="1">
-                        <div class="project-text">
-                            <h3>Whiteboard Colaborativo</h3>
-                            <p>Ferramenta de colaboração visual com suporte a múltiplos usuários em tempo real,
-                                inspirada no Miro, voltada para uso interno entre equipes da empresa.</p>
-                            <div class="project-tags">
-                                <span>Java</span><span>Vanilla
-                                    JavaScript</span><span>WebSocket</span><span>Database</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card color-30-rose" data-index="2">
-                        <div class="project-text">
-                            <h3>Chat Interno Corporativo</h3>
-                            <p>Ferramenta de comunicação interna entre departamentos, com histórico, notificações em
-                                tempo real e integração com o sistema ERP.</p>
-                            <div class="project-tags">
-                                <span>Java</span><span>Vanilla
-                                    JavaScript</span><span>WebSocket</span><span>Database</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card color-30-green" data-index="3">
-                        <div class="project-text">
-                            <h3>Integração com WhatsApp</h3>
-                            <p>Integração de mensagens automatizadas via WhatsApp para atendimento ao cliente e
-                                notificações de sistema.</p>
-                            <div class="project-tags">
-                                <span>Java</span><span>Node.js</span><span>Vanilla
-                                    JavaScript</span><span>WebSocket</span><span>Database</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card color-30-blue" data-index="4">
-                        <div class="project-text">
-                            <h3>Chat com Inteligência Artificial</h3>
-                            <p>Assistente virtual com IA para atendimento e suporte técnico dentro da plataforma, com
-                                contexto e
-                                respostas personalizadas.</p>
-                            <div class="project-tags">
-                                <span>Python</span><span>LangChain</span><span>OpenAI</span><span>Llama</span>
-                                <span>Java</span><span>Vanilla JavaScript</span><span>Database</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card color-30-orange" data-index="5">
-                        <div class="project-text">
-                            <h3>Dashboards Interativos</h3>
-                            <p>Visualização de métricas empresariais em tempo real com painéis personalizáveis por
-                                usuário.
-                            </p>
-                            <div class="project-tags">
-                                <span>Java</span><span>Vanilla JavaScript</span><span>Database</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card color-30-red" data-index="6">
-                        <div class="project-text">
-                            <h3>Editor/IDE Interno</h3>
-                            <p>Ambiente integrado de desenvolvimento para Java, frontend e banco de dados, com destaque
-                                de
-                                sintaxe, execução de código e integração ao ERP.</p>
-                            <div class="project-tags">
-                                <span>Java</span><span>SQL</span><span>Frontend</span><span>Monaco Editor</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="project-images">
-                    <img src="./images/project_editor_site.png" class="project-img" loading="lazy" data-id="0"
-                        alt="Projeto 1">
-                    <img src="./images/project_whiteboard.png" class="project-img" loading="lazy" data-id="1"
-                        alt="Projeto 2">
-                    <img src="./images/project_chat_internal.png" class="project-img" loading="lazy" data-id="2"
-                        alt="Projeto 3">
-                    <img src="./images/project_whatsapp.png" class="project-img" loading="lazy" data-id="3"
-                        alt="Projeto 4">
-                    <img src="./images/project_chat_ai.png" class="project-img" loading="lazy" data-id="4"
-                        alt="Projeto 5">
-                    <img src="./images/project_dashboard.png" class="project-img" loading="lazy" data-id="5"
-                        alt="Projeto 6">
-                    <img src="./images/project_editor_ide.png" class="project-img" loading="lazy" data-id="6"
-                        alt="Projeto 7">
-                </div>
-
-            </div>
-        </section>
-
-        <section class="contact" id="contato">
-            <div class="section-header">
-                <h2 class="section-title">Entre em Contato</h2>
-            </div>
-            <p>Interessado em colaborar ou saber mais? Ficarei feliz em conversar com você!</p>
-            <div class="contact-links">
-                <a href="https://www.linkedin.com/in/willianwozniak/" target="_blank" class="social-link"><i
-                        class="fa-brands fa-linkedin fa-2x"></i><span>LinkedIn</span></a>
-                <a href="https://github.com/willian-wozniak" target="_blank" class="social-link"><i
-                        class="fa-brands fa-github fa-2x"></i><span>GitHub</span></a>
-                <a href="mailto:willianrafaelwozniak@gmail.com" class="social-link"><i
-                        class="fa-solid fa-envelope fa-2x"></i><span>E-mail</span></a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-social">
-            <a class="social-link" href="https://www.linkedin.com/in/willianwozniak/" target="_blank"
-                aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a class="social-link" href="https://github.com/willian-wozniak" target="_blank" aria-label="GitHub"><i
-                    class="fa-brands fa-github"></i></a>
-            <a class="social-link" href="mailto:willianrafaelwozniak@gmail.com" aria-label="Email"><i
-                    class="fa-solid fa-envelope"></i></a>
-        </div>
-        <p>&copy; 2025 Willian Rafael Wozniak. Todos os direitos reservados.</p>
-        <p>Desenvolvido com <i class="fa-solid fa-heart" style="color: #e44d26;"></i> e <i class="fa-solid fa-code"
-                style="color: var(--accent-blue);"></i>.</p>
-    </footer>
-
-    <div id="scroll-progress"></div>
-</body>
-
+        <div id="scroll-progress"></div>
+    </body>
 </html>
