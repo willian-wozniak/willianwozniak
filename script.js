@@ -231,14 +231,14 @@ class Index {
 
         if (this.isReducedMotion) {
             subtitle.textContent =
-                "Engenheiro de Software";
+                "Especiaista Sênior em Engenharia de IA";
 
             return;
         }
 
         if (typeof Typed === "undefined") {
             subtitle.textContent =
-                "Engenheiro de Software · " +
+                "Especiaista Sênior em Engenharia de IA · " +
                 "Java · Python · JavaScript";
 
             return;
@@ -248,7 +248,7 @@ class Index {
             "#typed-subtitle",
             {
                 strings: [
-                    "Engenheiro de Software",
+                    "Especiaista Sênior em Engenharia de IA",
                     "Java · Python · JavaScript",
                     "Arquitetura limpa e sistemas escaláveis",
                     "Produtos, automações e agentes com IA",
