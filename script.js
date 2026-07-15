@@ -44,7 +44,6 @@ class Index {
         this.prepareTitleWords();
         this.setupNavbar();
         this.setupSmoothNavigation();
-        this.setupBackToTop();
         this.setupScrollUi();
 
         const start = () => {
@@ -478,11 +477,6 @@ class Index {
                 ".navbar"
             );
 
-        const backToTop =
-            document.querySelector(
-                ".back-to-top"
-            );
-
         const update = () => {
             this.scrollFrame = null;
 
@@ -492,12 +486,6 @@ class Index {
             navbar?.classList.toggle(
                 "is-scrolled",
                 scrollTop > 20
-            );
-
-            backToTop?.classList.toggle(
-                "is-visible",
-                scrollTop >
-                    window.innerHeight * 0.72
             );
         };
 
@@ -592,41 +580,6 @@ class Index {
                     }
                 );
             });
-    }
-
-    setupBackToTop() {
-        const button =
-            document.querySelector(
-                ".back-to-top"
-            );
-
-        if (!button) return;
-
-        button.addEventListener(
-            "click",
-            () => {
-                if (
-                    this.gsapReady &&
-                    !this.isReducedMotion
-                ) {
-                    gsap.to(window, {
-                        duration: 0.9,
-                        scrollTo: 0,
-                        ease: "power3.inOut",
-                        overwrite: true,
-                    });
-                } else {
-                    window.scrollTo({
-                        top: 0,
-                        behavior:
-                            this
-                                .isReducedMotion
-                                ? "auto"
-                                : "smooth",
-                    });
-                }
-            }
-        );
     }
 
     setupScrollProgress() {
