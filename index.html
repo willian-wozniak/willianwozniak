@@ -72,6 +72,7 @@
             <div class="hero-orb hero-orb-two"></div>
             <div class="hero-orb hero-orb-three"></div>
             <div class="hero-network">
+                <span class="network-core"></span>
                 <span class="network-node network-node-one"></span>
                 <span class="network-node network-node-two"></span>
                 <span class="network-node network-node-three"></span>
@@ -79,6 +80,7 @@
                 <span class="network-line network-line-one"></span>
                 <span class="network-line network-line-two"></span>
                 <span class="network-line network-line-three"></span>
+                <span class="network-line network-line-four"></span>
             </div>
         </div>
 
@@ -94,6 +96,14 @@
             <p class="hero-role hero-animate">
                 Especialista Sênior em Engenharia de IA
             </p>
+
+            <div class="hero-flow hero-animate" aria-label="Fluxo de engenharia de inteligência artificial">
+                <span><i aria-hidden="true"></i>Dados</span>
+                <b aria-hidden="true"></b>
+                <span><i aria-hidden="true"></i>Inteligência</span>
+                <b aria-hidden="true"></b>
+                <span><i aria-hidden="true"></i>Ação</span>
+            </div>
 
             <p class="hero-description hero-animate">
                 Projeto agentes inteligentes, arquiteturas com LLMs, RAG,
@@ -148,7 +158,23 @@
     </header>
 
     <main class="site-main" id="conteudo-principal">
-        <section class="section about-me" id="sobre">
+        <div class="page-graph" aria-hidden="true">
+            <svg id="page-graph-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" focusable="false">
+                <defs>
+                    <linearGradient id="page-graph-gradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#7de7ff" stop-opacity="0.78" />
+                        <stop offset="48%" stop-color="#b49cff" stop-opacity="0.62" />
+                        <stop offset="100%" stop-color="#58e3a0" stop-opacity="0.52" />
+                    </linearGradient>
+                </defs>
+                <path class="page-graph-path page-graph-path-base" data-graph-path-base></path>
+                <path class="page-graph-path page-graph-path-accent" data-graph-path-accent></path>
+                <g data-graph-dots></g>
+            </svg>
+        </div>
+
+        <section class="section about-me" id="sobre" data-graph-section>
+            <span class="section-graph-node" aria-hidden="true"><i></i></span>
             <div class="section-header">
                 <span class="section-eyebrow">01 · Sobre</span>
                 <h2 class="section-title">Engenharia sólida, IA útil e visão de produto</h2>
@@ -158,7 +184,7 @@
                 </p>
             </div>
 
-            <div class="about-layout">
+            <div class="about-layout graph-cluster">
                 <div class="profile-column">
                     <div class="profile-frame">
                         <div class="profile-glow" aria-hidden="true"></div>
@@ -218,7 +244,8 @@
             </div>
         </section>
 
-        <section class="section ai-specialties" id="especialidades">
+        <section class="section ai-specialties" id="especialidades" data-graph-section>
+            <span class="section-graph-node" aria-hidden="true"><i></i></span>
             <div class="section-header">
                 <span class="section-eyebrow">02 · Inteligência Artificial</span>
                 <h2 class="section-title">IA integrada ao negócio, não isolada em uma demonstração</h2>
@@ -228,7 +255,7 @@
                 </p>
             </div>
 
-            <div class="ai-grid">
+            <div class="ai-grid graph-cluster">
                 <article class="ai-card">
                     <div class="ai-card-icon">
                         <i class="fa-solid fa-robot" aria-hidden="true"></i>
@@ -279,7 +306,8 @@
             </div>
         </section>
 
-        <section class="section projects" id="projetos">
+        <section class="section projects" id="projetos" data-graph-section>
+            <span class="section-graph-node" aria-hidden="true"><i></i></span>
             <div class="section-header section-header-wide">
                 <span class="section-eyebrow">03 · Soluções criadas</span>
                 <h2 class="section-title">Produtos que conectam pessoas, processos, dados e inteligência</h2>
@@ -289,7 +317,7 @@
                 </p>
             </div>
 
-            <div class="projects-grid">
+            <div class="projects-grid graph-cluster">
                 <article class="project-card project-card-featured color-30-blue">
                     <img src="./images/project_chat_ai.png" class="project-artwork" alt="" aria-hidden="true"
                         loading="lazy" decoding="async" />
@@ -461,7 +489,8 @@
             </div>
         </section>
 
-        <section class="section experience" id="experiencia">
+        <section class="section experience" id="experiencia" data-graph-section>
+            <span class="section-graph-node" aria-hidden="true"><i></i></span>
             <div class="section-header">
                 <span class="section-eyebrow">04 · Experiência</span>
                 <h2 class="section-title">Construindo produtos que resolvem</h2>
@@ -471,7 +500,7 @@
                 </p>
             </div>
 
-            <div class="experience-layout">
+            <div class="experience-layout graph-cluster">
                 <div class="timeline-rail" aria-hidden="true">
                     <span class="timeline-progress"></span>
                 </div>
@@ -504,7 +533,8 @@
             </div>
         </section>
 
-        <section class="section skills" id="habilidades">
+        <section class="section skills" id="habilidades" data-graph-section>
+            <span class="section-graph-node" aria-hidden="true"><i></i></span>
             <div class="section-header">
                 <span class="section-eyebrow">05 · Stack</span>
                 <h2 class="section-title">Stack ampla, decisões conscientes</h2>
@@ -514,7 +544,7 @@
                 </p>
             </div>
 
-            <div class="skills-grid">
+            <div class="skills-grid graph-cluster">
                 <article class="skill-group skill-group-featured">
                     <div class="skill-group-icon"><i class="fa-solid fa-brain" aria-hidden="true"></i></div>
                     <div class="skill-group-heading">
@@ -617,10 +647,11 @@
             </div>
         </section>
 
-        <section class="section contact" id="contato">
+        <section class="section contact" id="contato" data-graph-section>
+            <span class="section-graph-node" aria-hidden="true"><i></i></span>
             <div class="contact-orb" aria-hidden="true"></div>
 
-            <div class="contact-content">
+            <div class="contact-content graph-cluster">
                 <span class="section-eyebrow">06 · Contato</span>
                 <h2 class="section-title">Vamos construir algo relevante?</h2>
                 <p>

@@ -22,6 +22,11 @@
     --accent-rose: #ff8dc7;
     --accent-red: #ff7b88;
 
+    --graph-line: rgba(125, 231, 255, 0.16);
+    --graph-line-strong: rgba(125, 231, 255, 0.42);
+    --graph-node-bg: #09111b;
+    --graph-node-size: 16px;
+
     --blue-30: hsl(192, 92%, 72%);
     --green-30: hsl(153, 92%, 68%);
     --purple-30: hsl(258, 92%, 78%);

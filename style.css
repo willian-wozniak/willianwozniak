@@ -422,6 +422,31 @@ body.menu-open .navbar {
     transform: rotate(-11deg);
 }
 
+.network-line-four {
+    top: 50%;
+    left: 50%;
+    width: 38%;
+    transform: rotate(145deg);
+}
+
+.network-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    width: clamp(74px, 18vw, 128px);
+    aspect-ratio: 1;
+    border: 1px solid rgba(125, 231, 255, 0.14);
+    border-radius: 50%;
+    background:
+        radial-gradient(circle, rgba(125, 231, 255, 0.14) 0 8%, transparent 9% 30%, rgba(180, 156, 255, 0.06) 31% 33%, transparent 34%),
+        rgba(7, 11, 18, 0.24);
+    box-shadow:
+        0 0 0 18px rgba(125, 231, 255, 0.018),
+        0 0 70px rgba(36, 200, 242, 0.08);
+    transform: translate(-50%, -50%);
+}
+
 .header-content {
     position: relative;
     z-index: 2;
@@ -1357,6 +1382,385 @@ body.menu-open .navbar {
     font-size: 0.72rem;
 }
 
+
+/* Sistema visual de grafo */
+
+.hero-flow {
+    width: min(460px, 100%);
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: auto minmax(22px, 1fr) auto minmax(22px, 1fr) auto;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero-flow span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    color: var(--text-secondary);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.hero-flow span i {
+    width: 7px;
+    height: 7px;
+    border: 2px solid rgba(125, 231, 255, 0.7);
+    border-radius: 50%;
+    background: var(--graph-node-bg);
+    box-shadow: 0 0 12px rgba(125, 231, 255, 0.3);
+}
+
+.hero-flow b {
+    position: relative;
+    height: 1px;
+    overflow: visible;
+    background: linear-gradient(90deg, rgba(125, 231, 255, 0.08), rgba(125, 231, 255, 0.48), rgba(180, 156, 255, 0.12));
+}
+
+.hero-flow b::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -1px;
+    width: 5px;
+    height: 5px;
+    border-top: 1px solid rgba(125, 231, 255, 0.65);
+    border-right: 1px solid rgba(125, 231, 255, 0.65);
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.site-main {
+    isolation: isolate;
+}
+
+.page-graph {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.page-graph svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+}
+
+.page-graph-path {
+    fill: none;
+    vector-effect: non-scaling-stroke;
+}
+
+.page-graph-path-base {
+    stroke: rgba(125, 231, 255, 0.1);
+    stroke-width: 1;
+}
+
+.page-graph-path-accent {
+    stroke: url(#page-graph-gradient);
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-dasharray: 3 13;
+    opacity: 0.56;
+}
+
+.graph-svg-dot {
+    fill: var(--graph-node-bg);
+    stroke: rgba(125, 231, 255, 0.34);
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+}
+
+.graph-svg-dot-terminal {
+    fill: rgba(125, 231, 255, 0.16);
+    stroke: rgba(125, 231, 255, 0.6);
+}
+
+.section {
+    z-index: 1;
+}
+
+.section-graph-node {
+    position: absolute;
+    top: calc(var(--section-space) + 0.42rem);
+    left: 1px;
+    z-index: 4;
+    width: var(--graph-node-size);
+    height: var(--graph-node-size);
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(125, 231, 255, 0.44);
+    border-radius: 50%;
+    background: var(--graph-node-bg);
+    box-shadow:
+        0 0 0 5px rgba(125, 231, 255, 0.035),
+        0 0 18px rgba(125, 231, 255, 0.14);
+    transform: translate(-50%, -50%);
+    transition:
+        border-color var(--transition-base),
+        box-shadow var(--transition-base),
+        transform var(--transition-base);
+}
+
+.section-graph-node i {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    opacity: 0.66;
+    transition:
+        opacity var(--transition-base),
+        transform var(--transition-base);
+}
+
+.section.is-graph-active .section-graph-node {
+    border-color: rgba(125, 231, 255, 0.88);
+    box-shadow:
+        0 0 0 7px rgba(125, 231, 255, 0.055),
+        0 0 25px rgba(125, 231, 255, 0.34);
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+.section.is-graph-active .section-graph-node i {
+    opacity: 1;
+    transform: scale(1.35);
+}
+
+.section-header {
+    padding-left: 1.45rem;
+}
+
+.graph-cluster {
+    position: relative;
+}
+
+.graph-cluster:not(.contact-content)::before {
+    content: "";
+    position: absolute;
+    inset: -1rem;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.34;
+    background-image:
+        radial-gradient(circle at 15% 18%, rgba(125, 231, 255, 0.16) 0 1px, transparent 2px),
+        radial-gradient(circle at 78% 34%, rgba(180, 156, 255, 0.14) 0 1px, transparent 2px),
+        radial-gradient(circle at 38% 84%, rgba(88, 227, 160, 0.11) 0 1px, transparent 2px),
+        linear-gradient(115deg, transparent 20%, rgba(125, 231, 255, 0.035) 20.2%, transparent 20.4%),
+        linear-gradient(35deg, transparent 66%, rgba(180, 156, 255, 0.03) 66.2%, transparent 66.4%);
+    background-size: 96px 96px, 128px 128px, 150px 150px, 100% 100%, 100% 100%;
+    mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
+.contact-content.graph-cluster::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.42;
+    background-image:
+        radial-gradient(circle at 14% 24%, rgba(125, 231, 255, 0.16) 0 1px, transparent 2px),
+        radial-gradient(circle at 82% 72%, rgba(180, 156, 255, 0.14) 0 1px, transparent 2px),
+        linear-gradient(28deg, transparent 48%, rgba(125, 231, 255, 0.035) 48.2%, transparent 48.4%);
+    background-size: 110px 110px, 145px 145px, 100% 100%;
+}
+
+.contact-content.graph-cluster>* {
+    position: relative;
+    z-index: 1;
+}
+
+.node-port {
+
+    position: absolute;
+    top: 0.9rem;
+    right: 0.9rem;
+    z-index: 5;
+    width: 10px;
+    height: 10px;
+    border: 1px solid rgba(125, 231, 255, 0.42);
+    border-radius: 50%;
+    background: var(--graph-node-bg);
+    box-shadow: 0 0 14px rgba(125, 231, 255, 0.14);
+    pointer-events: none;
+}
+
+.node-port::before,
+.node-port::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+}
+
+.node-port::before {
+    inset: 2px;
+    border-radius: 50%;
+    background: var(--node-port-color, var(--accent-blue));
+    opacity: 0.74;
+}
+
+.node-port::after {
+    top: 50%;
+    right: 100%;
+    width: 22px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--node-port-color, var(--accent-blue)) 38%, transparent));
+    transform: translateY(-50%);
+}
+
+.project-card .node-port {
+    --node-port-color: var(--project-accent);
+    top: 1.2rem;
+    right: auto;
+    left: 1.2rem;
+}
+
+.project-card .node-port::after {
+    right: auto;
+    left: 100%;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--project-accent) 38%, transparent), transparent);
+}
+
+.project-card .project-number {
+    padding-left: 1.2rem;
+}
+
+.profile-frame .node-port,
+.contact-content .node-port {
+    --node-port-color: var(--accent-purple);
+}
+
+.experience-card .node-port {
+    --node-port-color: var(--accent-green);
+}
+
+.ai-card,
+.project-card,
+.skill-group,
+.experience-card,
+.profile-frame,
+.contact-content {
+    outline: 1px solid transparent;
+    outline-offset: -1px;
+}
+
+.ai-card:hover,
+.skill-group:hover,
+.profile-frame:hover {
+    outline-color: rgba(125, 231, 255, 0.08);
+}
+
+.no-js .site-main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--page-gutter);
+    z-index: 0;
+    width: 1px;
+    background: linear-gradient(var(--graph-line), rgba(180, 156, 255, 0.12), rgba(88, 227, 160, 0.1));
+}
+
+@media (min-width: 700px) {
+    .section-header {
+        padding-left: 1.8rem;
+    }
+
+    .section-graph-node {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (min-width: 980px) {
+    .page-graph-path-base {
+        stroke: rgba(125, 231, 255, 0.12);
+    }
+
+    .page-graph-path-accent {
+        stroke-width: 1.6;
+        stroke-dasharray: 4 16;
+        opacity: 0.66;
+    }
+
+    .section-header {
+        padding-left: 0;
+    }
+
+    .section:nth-of-type(odd) .section-graph-node {
+        left: 0;
+        right: auto;
+    }
+
+    .section:nth-of-type(even) .section-graph-node {
+        right: 0;
+        left: auto;
+        transform: translate(50%, -50%);
+    }
+
+    .section:nth-of-type(even).is-graph-active .section-graph-node {
+        transform: translate(50%, -50%) scale(1.08);
+    }
+
+    .graph-cluster::before {
+        inset: -2rem;
+        opacity: 0.46;
+    }
+
+    .ai-grid::after,
+    .skills-grid::after,
+    .projects-grid::after {
+        content: "";
+        position: absolute;
+        top: -1.25rem;
+        right: 8%;
+        left: 8%;
+        z-index: -1;
+        height: 1px;
+        pointer-events: none;
+        background: linear-gradient(90deg, transparent, rgba(125, 231, 255, 0.16), rgba(180, 156, 255, 0.12), transparent);
+    }
+
+    .node-port {
+        transition:
+            border-color var(--transition-base),
+            box-shadow var(--transition-base),
+            transform var(--transition-base);
+    }
+
+    .ai-card:hover .node-port,
+    .project-card:hover .node-port,
+    .skill-group:hover .node-port,
+    .profile-frame:hover .node-port,
+    .contact-content:hover .node-port {
+        border-color: color-mix(in srgb, var(--node-port-color, var(--accent-blue)) 78%, white 8%);
+        box-shadow: 0 0 20px color-mix(in srgb, var(--node-port-color, var(--accent-blue)) 28%, transparent);
+        transform: scale(1.16);
+    }
+}
+
+@media (max-width: 420px) {
+    .hero-flow {
+        gap: 0.32rem;
+    }
+
+    .hero-flow span {
+        gap: 0.28rem;
+        font-size: 0.61rem;
+    }
+
+    .hero-flow b {
+        min-width: 14px;
+    }
+}
+
 /* Tablets */
 
 @media (min-width: 560px) {
@@ -1764,5 +2168,25 @@ body.menu-open .navbar {
     .hero-animate {
         opacity: 1 !important;
         transform: none !important;
+    }
+}
+
+
+@media (hover: none),
+(pointer: coarse) {
+
+    .ai-card:hover,
+    .skill-group:hover,
+    .profile-frame:hover {
+        outline-color: transparent;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .section-graph-node,
+    .section-graph-node i,
+    .node-port {
+        transition: none !important;
     }
 }
